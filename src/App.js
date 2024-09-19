@@ -4,7 +4,7 @@ import {useState} from "react";
 function App() {
 
     let logo = 'ReactBlog'; // 데이터를 잠깐 저장할 땐 변수 ( 변수값이 바뀔시 재 렌더링 X )
-    let [post1,setpost1] = useState(['남자 코트 추천111',"남자 코트 추천222","남자 코트 추천333"]); // state는 변경시 html이 재 렌더링이 됨
+    let [post1,setpost1] = useState(['남자 코트 추천333',"남자 코트 추천222","남자 코트 추천111"]); // state는 변경시 html이 재 렌더링이 됨
     let [nice,setnice] = useState(0);
 
     function niceButton(){
@@ -15,6 +15,10 @@ function App() {
         let newPosts = [...post1];
         newPosts[0] = "여자코트추천111";
         setpost1(newPosts);
+    }
+    function sortPost(){
+        let newPosts = [...post1];
+        setpost1(newPosts.sort());
     }
 
 
@@ -36,6 +40,7 @@ function App() {
             <p>9월 19일 발행</p>
         </div>
         <button onClick={changePost}>글 제목 변경</button>
+        <button onClick={sortPost}>가나다 순 정렬</button>
     </div>
   );
 }
